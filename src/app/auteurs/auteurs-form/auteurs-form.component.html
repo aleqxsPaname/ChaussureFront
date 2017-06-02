@@ -1,0 +1,70 @@
+<h5>{{ title }}</h5>
+
+
+ID : {{auteurs.id}} <br>{{ auteurs | json }}
+<div class="row">
+  <form class="col-xs-6" [formGroup]="form" (ngSubmit)='save()'>
+
+    
+    <div *ngIf= " auteurs.id > 0 " >
+    
+      <input type="hidden" class="validate" id="id" class="form-control" name="id" placeholder="id"
+            [(ngModel)]="auteurs.id" formControlName="id" >
+
+    </div>
+
+    <div class="row">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input class="validate" id="nom" type="text" class="form-control" name="nom" placeholder="Nom"
+            [(ngModel)]="auteurs.nom" formControlName="nom"
+                  [class.invalid]="form.controls['nom'].touched && !form.controls['nom'].valid"
+            >
+        <label for="nom"
+                  [class.active]="auteurs.nom"
+                  data-error="nom is required and needs to contain at least 3 chars">
+          
+            </label>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input class="validate" id="prenom" type="text" class="form-control" name="prenom" placeholder="Prenom"
+      [(ngModel)]="auteurs.prenom" formControlName="prenom"
+                [class.invalid]="form.controls['prenom'].touched && !form.controls['prenom'].valid"
+          >
+      <label for="prenom"
+                [class.active]="auteurs.prenom"
+                data-error="Prenom is required and needs to contain at least 3 chars">
+          
+      </label>
+    </div>
+    </div>
+    
+    <div class="row">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input class="validate" id="auteur_image" type="text" class="form-control" name="auteur_image" placeholder="auteur_image"
+      [(ngModel)]="auteurs.auteur_image" formControlName="auteur_image"
+                [class.invalid]="form.controls['auteur_image'].touched && !form.controls['auteur_image'].valid"
+          >
+      <label for="auteur_image"
+                [class.active]="auteurs.auteur_image"
+                data-error="nom image is required and needs to contain at least 3 chars">
+          
+      </label>
+    </div>
+    </div>
+
+<input id="photo" type="file" />
+
+
+
+ <button class="btn btn-lg btn-primary" type="submit"
+            [disabled]="!form.valid" >
+      charger la photo et envoyer <span class="glyphicon glyphicon-send"></span>
+    </button>
+  </form>
+</div>

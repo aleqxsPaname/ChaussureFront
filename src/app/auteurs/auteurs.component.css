@@ -1,0 +1,16 @@
+
+.hs2{
+     text-align:center; 
+     padding-top: 80px;
+     height:200px;
+}
+
+.hs :hover{
+    background-color: #e2E2E2; 
+    color:red;
+     font-size: large;
+     font-weight: bold;
+      text-decoration: blink;
+    
+
+}

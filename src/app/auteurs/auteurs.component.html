@@ -1,0 +1,87 @@
+<p>
+ Total <b>{{ auteurs.length }} </b> auteurs.
+</p>
+<div class="table-responsive">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th data-field="name">ID</th>
+    <th data-field="name">Image</th>
+    <th data-field="name">Nom</th>
+    <th data-field="name">Prenom</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let aut of auteurs">
+      <td>{{ aut.id }}</td>
+      <td><img  alt="{{ aut.auteur_image }}" src="assets/images/{{ aut.auteur_image }}.png"></td>
+      <td>{{ aut.nom }}</td>
+      <td>{{ aut.prenom }}</td>
+      <td>
+        <a class="btn btn-info" [routerLink]="['/auteurs', aut.id]">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a>
+      </td>
+      <td>
+      
+        <a class="btn btn-danger" (click)="deleteAuteurs(aut.id)" href="/auteurs" >
+          <span class="glyphicon glyphicon-trash"></span>
+
+
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+ 
+
+
+<div>
+  <a class="btn btn-primary" routerLink="/auteurs/new">
+    <span class="glyphicon glyphicon-plus"></span>
+  </a>
+</div>
+
+<hr><br>
+<hr>
+
+
+
+<p>
+ Total <b>{{ auteurs.length }} </b> auteurs.
+</p>
+<div class="row">
+  <div *ngFor="let aut of auteurs">
+  <div class="col-md-3 hs">
+       <div class="thumbnail "  >
+           <a href="#" routerLink="/produit/details">
+           <img src="assets/images/{{ aut.auteur_image }}.png" alt="aut.auteur_image" style="width:100%">
+       
+        <div class="hs2">
+         <p> {{ aut.id }}</p>
+         <p> {{ aut.nom }}</p>
+          <p>{{ aut.prenom }}</p>
+           
+         </div>
+        <!--  <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> AJOUTER
+          </button> -->
+
+          <a class="btn btn-primary" routerLink="/panier">
+              <span class="glyphicon glyphicon-shopping-cart"></span> AJOUTER
+            </a>
+
+
+      </a>
+    </div>
+  </div>
+ </div>
+</div>
+<div>
+  <a class="btn btn-primary" routerLink="/auteurs/new">
+    <span class="glyphicon glyphicon-plus"></span>
+  </a>
+</div>
